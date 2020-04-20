@@ -1,0 +1,29 @@
+
+<h1 data-controller = "item">
+<%= @item.name %> 
+                                                <%# item_controller.js的heart功能 %>
+<a href = "#" class= "btn btn-danger" data-action = "item#heart">
+                         <%# item_controller.js的圖標 static targets = ["icon"] %>
+<i class="far fa-heart" data-target = "item.icon"></i></a>
+</h1>
+
+<ul>
+  <li>價錢：<%= @item.price %> </li>
+</ul>
+
+<h3>留言</h3>
+<%= form_for(@comment, url: item_comments_path(@item),remote: true ) do |form| %>
+  <div class = "form-group"> 
+    <%= form.text_area :content , class: "form-control"%>
+  </div>
+
+  <%= form.submit '我要評價', class: 'btn btn-info' %>
+
+  <% end %>
+<hr>
+<div id = "comments">
+  <% @comments.each do |comment| %>
+  <%= render 'comments/comment' , comment: comment %>
+<% end %>
+  </div>
+
