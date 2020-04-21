@@ -27,7 +27,7 @@ export default class extends Controller {
     this.clicked = false
   }else{
     this.iconTarget.classList.remove('far')
-    this.iconTarget.classList.add('fas')
+    this.iconTarget.classList.add('fas') 
     this.clicked = true
   }
 
